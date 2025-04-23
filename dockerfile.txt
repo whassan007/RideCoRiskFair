@@ -1,0 +1,20 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy package files
+COPY . .
+
+# Install the package
+RUN pip install -e .
+
+# Create output directory
+RUN mkdir -p /app/output
+
+# Run the risk analysis when container starts
+ENTRYPOINT ["python", "-m", "rideco_risk_analysis.cli"]
+CMD ["--output-dir", "/app/output"]

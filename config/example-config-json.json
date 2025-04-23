@@ -1,0 +1,46 @@
+{
+  "cf_range": {
+    "min": 500000,
+    "max": 700000
+  },
+  "tc_range": {
+    "min": 7.0, 
+    "max": 9.5
+  },
+  "rs_range": {
+    "min": 3.0,
+    "max": 5.0
+  },
+  "sl_ef_range": {
+    "min": 0.08,
+    "max": 0.18
+  },
+  "sl_magnitude_range": {
+    "min": 900000,
+    "max": 1500000
+  },
+  "features_config": {
+    "FR-01 Emergency SOS": {
+      "pa": {
+        "min": 0.000015,
+        "max": 0.000035
+      },
+      "primary_loss": {
+        "min": 180000,
+        "max": 280000
+      },
+      "description": "Rider/driver can trigger in-app SOS; system places 911 voice call and pushes trip + real-time GPS to PSAP"
+    },
+    "FR-03 RideCheck Anomaly Detection": {
+      "pa": {
+        "min": 0.000025,
+        "max": 0.000045
+      },
+      "primary_loss": {
+        "min": 300000,
+        "max": 400000
+      },
+      "description": "System ingests GPS + IMU streams, scores every 5s; detects route deviation, crash, or prolonged stop"
+    }
+  }
+}

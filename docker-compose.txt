@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  rideco-risk-analysis:
+    build: .
+    volumes:
+      - ./output:/app/output
+      - ./config:/app/config
+    command: ["--output-dir", "/app/output", "--config", "/app/config/example_config.json"]
+
+  # Service that only generates reports, no visualizations
+  headless-analysis:
+    build: .
+    volumes:
+      - ./output:/app/output
+      - ./config:/app/config
+    command: ["--output-dir", "/app/output", "--no-plots"]
